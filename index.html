@@ -1788,6 +1788,10 @@ html, body {
     font-size: clamp(14px, 4vw, 18px);
   }
   .s14-tagline { font-size: clamp(14px, 4vw, 18px); }
+
+  /* ── Navbar: no bloquea el área de scroll del slide ── */
+  #navbar-wrapper { pointer-events: none; }
+  #navbar-wrapper * { pointer-events: auto; }
 }
 
 </style>
@@ -3175,31 +3179,32 @@ document.addEventListener('keydown', e => {
   if (['ArrowLeft','ArrowUp'].includes(e.key))         { e.preventDefault(); prevSlide(); }
 });
 
-/* ── Eventos: scroll wheel ── */
-let wheelCooldown = false;
-document.addEventListener('wheel', e => {
-  e.preventDefault();
-  if (wheelCooldown) return;
-  wheelCooldown = true;
-  if (e.deltaY > 0) nextSlide(); else prevSlide();
-  setTimeout(() => { wheelCooldown = false; }, 850);
-}, { passive: false });
+/* ── Detección mobile: desactiva swipe-to-slide, deja solo botones navbar ── */
+const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
 
-/* ── Eventos: touch ── */
+/* ── Eventos: scroll wheel (solo desktop) ── */
+let wheelCooldown = false;
+if (!isMobile) {
+  document.addEventListener('wheel', e => {
+    e.preventDefault();
+    if (wheelCooldown) return;
+    wheelCooldown = true;
+    if (e.deltaY > 0) nextSlide(); else prevSlide();
+    setTimeout(() => { wheelCooldown = false; }, 850);
+  }, { passive: false });
+}
+
+/* ── Eventos: touch (swipe vertical solo en desktop) ── */
 let touchY0 = 0;
 document.addEventListener('touchstart', e => { touchY0 = e.touches[0].clientY; }, { passive: true });
-document.addEventListener('touchend', e => {
-  const delta = touchY0 - e.changedTouches[0].clientY;
-  if (Math.abs(delta) > 50) {
-    const active = document.querySelector('.slide.active');
-    if (active) {
-      /* Si el slide tiene scroll interno, navegar solo cuando llega al borde */
-      if (delta > 0 && active.scrollTop + active.clientHeight < active.scrollHeight - 10) return;
-      if (delta < 0 && active.scrollTop > 10) return;
+if (!isMobile) {
+  document.addEventListener('touchend', e => {
+    const delta = touchY0 - e.changedTouches[0].clientY;
+    if (Math.abs(delta) > 50) {
+      if (delta > 0) nextSlide(); else prevSlide();
     }
-    if (delta > 0) nextSlide(); else prevSlide();
-  }
-});
+  });
+}
 
 /* ── Botones navbar ── */
 document.getElementById('btn-next').addEventListener('click', nextSlide);
