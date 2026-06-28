@@ -2984,8 +2984,11 @@ void main(){
   const spd = ease(C.speed / 100) * 5;
 
   function resize() {
-    canvas.width  = innerWidth  * Math.min(devicePixelRatio, 2);
-    canvas.height = innerHeight * Math.min(devicePixelRatio, 2);
+    const mob  = window.matchMedia('(max-width: 768px)').matches;
+    const wMul = mob ? 1.5 : 1;
+    canvas.width  = Math.round(innerWidth  * Math.min(devicePixelRatio, 2) * wMul);
+    canvas.height = Math.round(innerHeight * Math.min(devicePixelRatio, 2));
+    canvas.style.width  = mob ? (innerWidth * wMul) + 'px' : '';
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
   resize();
