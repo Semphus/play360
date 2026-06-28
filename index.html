@@ -1615,6 +1615,7 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y; /* iOS: permite scroll vertical dentro del slide */
   }
 
   /* Slides densos: alinear arriba para que el scroll arranque del inicio */
@@ -1626,11 +1627,23 @@ html, body {
     justify-content: flex-start;
   }
 
+  /* Altura dinámica: evita que la barra del navegador iOS corte el contenido */
+  #slides-container {
+    height: 100vh;
+    height: 100dvh;
+  }
+
   #navbar-wrapper {
     bottom: 68px;
     left: 16px;
     right: 16px;
     transform: none;
+    /* El wrapper no intercepta toques — solo los botones internos son clickeables */
+    pointer-events: none;
+  }
+
+  #navbar-wrapper * {
+    pointer-events: auto;
   }
 
   #poda {
