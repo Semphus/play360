@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(python -c ' *)",
+      "Bash(powershell -Command ' *)",
+      "Skill(run)",
+      "Bash(start index.html)",
+      "PowerShell(cd \"C:\\\\Users\\\\Usuario\\\\Downloads\\\\web interactiva\"; Start-Process powershell -ArgumentList '-NoProfile -Command \"cd ''C:\\\\Users\\\\Usuario\\\\Downloads\\\\web interactiva''; python -m http.server 8765 2>&1\"' -WindowStyle Hidden; Start-Sleep -Seconds 1; Write-Host \"Server started\")",
+      "PowerShell($ver = node --version 2>$null; if \\($ver\\) { Write-Host \"Node: $ver\"; cd \"C:\\\\Users\\\\Usuario\\\\Downloads\\\\web interactiva\"; Start-Process powershell -ArgumentList '-NoProfile -Command \"cd ''C:\\\\Users\\\\Usuario\\\\Downloads\\\\web interactiva''; npx -y http-server -p 8765 2>&1\"' -WindowStyle Hidden; Start-Sleep -Seconds 2; Write-Host \"Done\" } else { Write-Host \"No node\" })",
+      "Bash(rm 13.jpg 14.jpg 15.jpg 16.jpg 17.jpg 18.jpg 19.jpg 20.jpg 21.jpg 22.jpg 23.jpg 24.jpg 25.jpg 26.jpg 27.jpg 28.jpg \"Acá están los textos del Play 360, organizados por slide_.docx\" \"cambios solicitados.txt\" \"play360_master_prompt.md\" \"play360_textos.md\" \"temp_doc.xml\" \"temp_plain.txt\" \"recursos/LOGO PLAY 360 E.png\" \"recursos/botones para play 360 o para cosas rectangulares.html\" \"recursos/colores para la presentacion.txt\" \"recursos/fondo html/fondo html play 360.html\" \"recursos/play360-navbar.html\")",
+      "Bash(rmdir \"recursos/fondo html\")"
+    ]
+  }
+}
