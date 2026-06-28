@@ -1669,7 +1669,7 @@ html, body {
   .s3-logo { width: 78vw; margin-top: 12px; }
   .s3-paragraph {
     max-width: 92vw;
-    font-size: clamp(14px, 3.8vw, 17px);
+    font-size: clamp(13px, 3.4vw, 15px);
     margin-top: 22px;
   }
 
@@ -1704,10 +1704,10 @@ html, body {
   .slide[data-slide="6"] { justify-content: flex-start; padding-top: 100px; }
   .s6-grid { grid-template-columns: 1fr; gap: 10px; }
   .s6-photo {
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
     display: block;
-    max-height: 420px;
+    max-height: 500px;
     object-fit: cover;
     object-position: top center;
   }
@@ -1794,19 +1794,30 @@ html, body {
     gap: 16px !important;
     padding-left: 26px !important;
     padding-right: 26px !important;
-    min-width: min(300px, 88vw);
+    min-width: min(340px, 92vw);
+  }
+
+  /* ── Navbar: contador en una sola línea horizontal ── */
+  #nav-counter {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    gap: 4px;
   }
 
   /* ── Padding-bottom: slides con contenido largo (para ver todo al scrollear) ── */
+  /* Slide 2: usa 120px aquí + 72px internos en .s2-social = 192px efectivos (~66px sobre navbar) */
   .slide[data-slide="2"]  { padding-bottom: 120px; }
-  .slide[data-slide="3"]  { padding-bottom: 120px; }
-  .slide[data-slide="4"]  { padding-top: 100px; padding-bottom: 120px; }
-  .slide[data-slide="5"]  { padding-bottom: 120px; }
-  .slide[data-slide="6"]  { padding-bottom: 120px; }
-  .slide[data-slide="9"]  { padding-bottom: 120px; }
-  .slide[data-slide="11"] { padding-bottom: 120px; }
-  .slide[data-slide="12"] { padding-bottom: 120px; }
-  .slide[data-slide="13"] { padding-bottom: 120px; }
+  /* Resto: sin padding interno en último elemento, se necesita más para igualar slide 2 */
+  .slide[data-slide="3"]  { padding-bottom: 160px; }
+  .slide[data-slide="4"]  { padding-top: 100px; padding-bottom: 160px; }
+  .slide[data-slide="5"]  { padding-bottom: 160px; }
+  .slide[data-slide="6"]  { padding-bottom: 160px; }
+  .slide[data-slide="9"]  { padding-bottom: 160px; }
+  .slide[data-slide="11"] { padding-bottom: 160px; }
+  .slide[data-slide="12"] { padding-bottom: 160px; }
+  .slide[data-slide="13"] { padding-bottom: 160px; }
 
   /* ── Navbar: no bloquea el área de scroll del slide ── */
   #navbar-wrapper { pointer-events: none; }

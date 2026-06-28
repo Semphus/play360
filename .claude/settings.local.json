@@ -13,7 +13,8 @@
       "PowerShell(gh auth *)",
       "Bash(git -C \"C:/Users/Usuario/Documents/GitHub/play360-propuestasponsors\" status)",
       "Bash(git -C \"C:/Users/Usuario/Documents/GitHub/play360-propuestasponsors\" diff --stat)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(npm run *)"
     ]
   }
 }
