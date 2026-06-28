@@ -1636,7 +1636,7 @@ html, body {
   .s1-wrap {
     justify-content: center;
     padding-top: 0;
-    transform: translateY(24px);
+    transform: translateY(-8px);
   }
   .s1-america-logo { height: 62px; }
   .s1-gap { height: 30px; }
@@ -1780,7 +1780,7 @@ html, body {
   .price-box .price-label { font-size: 12px; }
 
   /* ── SLIDE 14 ── */
-  .s14-wrap { gap: 16px; }
+  .s14-wrap { gap: 16px; transform: translateY(-24px); }
   .s14-america-logo { height: 70px; }
   .s14-play360-logo { width: 80vw; }
   .s14-paragraph {
@@ -1788,6 +1788,25 @@ html, body {
     font-size: clamp(14px, 4vw, 18px);
   }
   .s14-tagline { font-size: clamp(14px, 4vw, 18px); }
+
+  /* ── Navbar: pill más ancho y con más espacio entre elementos ── */
+  #poda > div:last-child {
+    gap: 16px !important;
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+    min-width: min(300px, 88vw);
+  }
+
+  /* ── Padding-bottom: slides con contenido largo (para ver todo al scrollear) ── */
+  .slide[data-slide="2"]  { padding-bottom: 120px; }
+  .slide[data-slide="3"]  { padding-bottom: 120px; }
+  .slide[data-slide="4"]  { padding-top: 100px; padding-bottom: 120px; }
+  .slide[data-slide="5"]  { padding-bottom: 120px; }
+  .slide[data-slide="6"]  { padding-bottom: 120px; }
+  .slide[data-slide="9"]  { padding-bottom: 120px; }
+  .slide[data-slide="11"] { padding-bottom: 120px; }
+  .slide[data-slide="12"] { padding-bottom: 120px; }
+  .slide[data-slide="13"] { padding-bottom: 120px; }
 
   /* ── Navbar: no bloquea el área de scroll del slide ── */
   #navbar-wrapper { pointer-events: none; }
