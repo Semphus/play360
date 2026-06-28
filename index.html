@@ -1636,7 +1636,7 @@ html, body {
   .s1-wrap {
     justify-content: center;
     padding-top: 0;
-    transform: translateY(-8px);
+    transform: translateY(-50px);
   }
   .s1-america-logo { height: 62px; }
   .s1-gap { height: 30px; }
@@ -1806,18 +1806,17 @@ html, body {
     gap: 4px;
   }
 
-  /* ── Padding-bottom: slides con contenido largo (para ver todo al scrollear) ── */
-  /* Slide 2: usa 120px aquí + 72px internos en .s2-social = 192px efectivos (~66px sobre navbar) */
-  .slide[data-slide="2"]  { padding-bottom: 120px; }
-  /* Resto: sin padding interno en último elemento, se necesita más para igualar slide 2 */
-  .slide[data-slide="3"]  { padding-bottom: 160px; }
-  .slide[data-slide="4"]  { padding-top: 160px; padding-bottom: 160px; }
-  .slide[data-slide="5"]  { padding-bottom: 160px; }
-  .slide[data-slide="6"]  { padding-bottom: 160px; }
-  .slide[data-slide="9"]  { padding-bottom: 160px; }
-  .slide[data-slide="11"] { padding-bottom: 160px; }
-  .slide[data-slide="12"] { padding-bottom: 160px; }
-  .slide[data-slide="13"] { padding-bottom: 160px; }
+  /* ── Padding-bottom: valor generoso para que el contenido no quede tapado por el navbar ── */
+  .slide[data-slide="2"]  { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="3"]  { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="4"]  { padding-top: 160px; padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="5"]  { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="6"]  { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="7"]  { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="9"]  { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="11"] { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="12"] { padding-bottom: max(250px, 30vh); }
+  .slide[data-slide="13"] { padding-bottom: max(250px, 30vh); }
 
   /* ── Navbar: no bloquea el área de scroll del slide ── */
   #navbar-wrapper { pointer-events: none; }
